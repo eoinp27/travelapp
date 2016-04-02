@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity
         implements OneFragment.OnFragmentInteractionListener, TwoFragment.OnFragmentInteractionListener, ThreeFragment.OnFragmentInteractionListener, MyInterface {
 
   //  private Toolbar toolbar;
+    int euroTab = 0;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
@@ -27,39 +28,30 @@ public class MainActivity extends AppCompatActivity
             R.drawable.ic_coins
     };
 
-    NumberPicker noPicker = null;
-    NumberPicker noPicker2 = null;
+    public void setEuroTab(int x){
+        euroTab = x;
+    }
+
+    public int getEuroTab(){
+        return euroTab;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
-        noPicker = (NumberPicker)findViewById(R.id.numberPicker1);
-        /*
-        noPicker.setMaxValue(99);
-        noPicker.setMinValue(0);
-        noPicker.setWrapSelectorWheel(false);
-
-*/
-        noPicker2 = (NumberPicker)findViewById(R.id.numberPicker2);
-        /*
-        noPicker2.setMaxValue(99);
-        noPicker2.setMinValue(0);
-        noPicker2.setWrapSelectorWheel(false);
-        */
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+
+
+
     }
 
     private void setupTabIcons() {
@@ -115,5 +107,10 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.numberPicker1).setVisibility(View.VISIBLE);
         findViewById(R.id.numberPicker2).setVisibility(View.VISIBLE);
     }
+
+    public void saveData(int id, Bundle data){
+
+    }
+
 }
 
